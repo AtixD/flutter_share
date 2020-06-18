@@ -79,16 +79,16 @@ public class SwiftFlutterSharePlugin: NSObject, FlutterPlugin {
         }
 
         var sharedItems : Array<NSObject> = Array()
-
-        // text
-        if (text != nil && text != "") {
-            sharedItems.append((text as NSObject?)!)
-        }
-
+        
         // File url
         if (filePath != nil && filePath != "") {
             let filePath = URL(fileURLWithPath: filePath!)
             sharedItems.append(filePath as NSObject);
+        }
+
+        // text
+        if (text != nil && text != "") {
+            sharedItems.append((text as NSObject?)!)
         }
 
         let activityViewController = UIActivityViewController(activityItems: sharedItems, applicationActivities: nil)
